@@ -1,0 +1,41 @@
+{% extends 'portfolio/layout_list.html' %}
+
+{% block titulo %}
+<h3>Licenciatura</h3>
+{% endblock %}
+
+{% block img1 %}
+    {% load static %}
+    <img src="{% static 'portfolio/images/c-icon.png' %}">
+{% endblock img1 %}
+
+{% block text1 %}
+    <p>Linguagens de Programação 1 - Linguagem C
+        <br> Pedro Serra
+        <br> 1ºAno/ 2ºSemestre - 5 ECTS
+        <br> 5⭐</p>
+{% endblock text1 %}
+
+{% block img2 %}
+   {% load static %}
+    <img src="{% static 'portfolio/images/arduino-icon.png' %}">
+{% endblock img2 %}
+
+{% block text2 %}
+    <p>Arquitectura Avançada de Computadores - Arduino
+        <br> Pedro Serra
+        <br> 2ºAno/ 1ºSemestre - 6 ECTS
+        <br> 5⭐</p>
+{% endblock text2 %}
+
+{% block img3 %}
+    {% load static %}
+    <img src="{% static 'portfolio/images/html-icon.png' %}">
+{% endblock img3 %}
+
+{% block text3 %}
+    <p>Programação Web - WebSites
+        <br> Lucio Studer
+        <br> 2ºAno/ 2ºSemestre - 6 ECTS
+        <br> 5⭐</p>
+{% endblock text3 %}

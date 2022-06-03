@@ -1,0 +1,35 @@
+.new-form{
+    text-align: center;
+    margin-top:40px;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+}
+
+.new-form label{
+    padding: 20px;
+}
+
+.new-form input{
+    margin-top: 10px;
+}
+
+
+.postar-btn{
+    padding: 10px;
+    background-color: green;
+    border-radius: 20px;
+    border: none;
+}
+
+.eliminar-btn{
+    padding: 10px;
+    background-color: red;
+    border-radius: 20px;
+    border: none;
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,28 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    <a href="{% url 'portfolio:new' %}" class="button" role="button">+ Novo Post</a>
+
+    <div class="post_boxes">
+        {% for post in posts %}
+            <div class="post_box">
+                    <div class="top_titulo">
+                        <p>{{ post.titulo }}</p>
+                    </div>
+                    <div class="top_autor">
+                        <p>({{ post.data.day }}/{{ post.data.month }} - {{ post.autor }})</p>
+                    </div>
+
+                <div class="middle">
+                    <p>{{ post.descricao }}
+                        {{ post.link_projeto }}</p>
+                </div>
+                <br>
+                <div class="bottom">
+                    <a href="{% url 'portfolio:edit_post' post.id %}" class="button" role="button">Editar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

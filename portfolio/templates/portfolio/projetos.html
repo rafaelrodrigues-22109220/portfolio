@@ -1,0 +1,39 @@
+{% extends 'portfolio/layout_list.html' %}
+
+{% block titulo %}
+<h3>Projetos</h3>
+{% endblock %}
+
+{% block img1 %}
+    {% load static %}
+    <img src="{% static 'portfolio/images/Deisi_Game-pequeno.PNG' %}">
+{% endblock img1 %}
+
+{% block text1 %}
+    <p><b>Deisi Great Game</b></p>
+    <p>Projeto realizado na cadeira de Linguagens de programação 2, consiste num jogo de tabuleiro semelhante
+    ao jogo da glória </p>
+{% endblock text1 %}
+
+{% block img2 %}
+   {% load static %}
+    <img src="{% static 'portfolio/images/chess_game.PNG' %}">
+{% endblock img2 %}
+
+{% block text2 %}
+    <p><b>Xadrez</b></p>
+    <p>Projeto Realizado na cadeira de Fundamentos de Programação, consiste num jogo de xadrez em kotlin
+        jogavel pelo terminal</p>
+{% endblock text2 %}
+
+{% block img3 %}
+    {% load static %}
+    <img src="{% static 'portfolio/images/horta_arduino-pequeno.png' %}">
+{% endblock img3 %}
+
+{% block text3 %}
+    <p><b>Rega automática arduino</b></p>
+        <br>
+    <p>Projeto de grupo realizado no ambito da cadeira de Arquitectura Avançada de Computadores
+        com o entuito de fazer uma rega completamente automática</p>
+{% endblock text3 %}

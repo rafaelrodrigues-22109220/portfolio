@@ -1,0 +1,45 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <style>
+        header{
+            {% load static %}
+            background-image: url("{% static 'portfolio/images/background.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 10vh;
+        }
+
+        main{
+            {% load static %}
+            background-image: url("{% static 'portfolio/images/background.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            color: aliceblue;
+        }
+        article.primeiro {
+            /* definindo altura e cor */
+            height: 50vh;
+            background: aliceblue;
+            color: black;
+            text-align: center;
+            font-size: 2rem;
+            padding: inherit;
+            border-radius: 20px;
+        }
+    </style>
+    <article class="primeiro">
+        <h3>O meu Portfólio - {{ agora }}</h3>
+        <br>
+        <p>Ola, o meu nome é Rafael, sou estudante do 2º ano da licenciatura em Engenharia Informática
+            e este é o meu portfolio Digital</p>
+    </article>
+
+{% endblock %}
+
+{% load static %}
+<img src="{% static 'portfolio/images/image.png' %}">

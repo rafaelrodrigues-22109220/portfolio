@@ -1,0 +1,13 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <h3>Edite o Post</h3>
+
+    <form method="Post" action="{%  url 'portfolio:edit_post' post_id %}" class="new-form">
+        {% csrf_token %}
+
+        {{form.as_p }}
+        <input type="submit" value="Postar" class="postar-btn">
+        <a href= "{% url 'portfolio:apaga_post' post_id %}" role="button" class="eliminar-btn"> apagar </a>
+    </form>
+{% endblock %}
