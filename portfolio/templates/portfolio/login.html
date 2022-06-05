@@ -1,0 +1,28 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <div class="background">
+    </div>
+
+    <form class="login_form">
+        {% csrf_token %}
+
+        {% if message %}
+            <p> {{ message }} </p>
+        {% endif %}
+
+        <h3>Login Here</h3>
+
+        <label for="username" class="login_label">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username" class="login_inpt">
+
+        <label for="password" class="login_label">Password</label>
+        <input type="password" placeholder="Password" id="password" class="login_inpt">
+
+        <button class="login_btn">Log In</button>
+
+        <div class="social">
+          <div class="novo">Novo Utilizador</div>
+        </div>
+    </form>
+{% endblock %}

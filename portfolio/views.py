@@ -1,9 +1,12 @@
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from django.urls import reverse
+from django.contrib.auth import authenticate, login, logout
+
 
 from matplotlib import pyplot as plt
 import matplotlib
@@ -36,7 +39,11 @@ def blog_page_view(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'portfolio/blog.html', context)
 
+@login_required
 def new_page_view(request):
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('tarefas:login'))
+
     form = PostForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -46,6 +53,7 @@ def new_page_view(request):
 
     return render(request, 'portfolio/new.html', context)
 
+@login_required
 def edita_post_view(request, post_id):
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, instance=post)
@@ -112,3 +120,33 @@ def desenha_grafico_resultados(request):
 
     plt.barh(listaNomes, listapontuacao)
     plt.savefig('portfolio/static/portfolio/images/graf.png', bbox_inches='tight')
+
+def view_login(request):
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(
+            request,
+            username=username,
+            password=password)
+
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect(reverse('portfolio:blog'))
+        else:
+            return render(request, 'portfolio/login.html', {
+                'message': 'Credenciais invalidas.'
+            })
+
+    return render(request, 'portfolio/login.html')
+
+
+def view_logout(request):
+    logout(request)
+
+    return render(request, 'portfolio/login.html', {
+                'message': 'Foi desconetado.'
+            })
+

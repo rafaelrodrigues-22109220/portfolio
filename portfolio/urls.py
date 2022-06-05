@@ -14,6 +14,7 @@ urlpatterns = [
     path('new',views.new_page_view, name ='new'),
     path('edit_post/<int:post_id>', views.edita_post_view ,name = 'edit_post'),
     path('apaga_post/<int:post_id>', views.apaga_post_view, name='apaga_post'),
-    path('quizz', views.quizz, name='quizz'),
+    path('quizz', views.quizz, name = 'quizz'),
+    path('login', views.view_login, name='login'),
 
 ]
