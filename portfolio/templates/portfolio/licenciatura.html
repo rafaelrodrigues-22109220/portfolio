@@ -13,10 +13,11 @@
                     <img src="{{ cadeira.imagem.url }}">
                 </div>
                 <div>
-                    <p>{{ cadeira.nome }} - {{ cadeira.assunto }}
-                    <br> {{ cadeira.docente }}
-                    <br> {{ cadeira.ano }} / {{ cadeira.semestre }}
-                    <br>{{ cadeira.avaliacao }} ⭐ </p>
+                    <p><b>Cadeira:</b>{{ cadeira.nome }}
+                    <br><b>Assunto:</b>{{ cadeira.assunto }}
+                    <br><b>Docente:</b> {{ cadeira.docente.nome}} <b>Linkedin:</b>{{ cadeira.docente.linkedin }}
+                    <br><b>Ano:</b> {{ cadeira.ano }} / <b>Semestre:</b>{{ cadeira.semestre }}
+                    <br><b>Avaliação:</b>{{ cadeira.avaliacao }} ⭐ </p>
                 </div>
             </div>
             {% endfor %}
