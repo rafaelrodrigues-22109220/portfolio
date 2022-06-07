@@ -17,7 +17,8 @@ from django.shortcuts import render
 
 
 from .forms import PostForm
-from .models import Pessoa, Post, PontuacaoQuizz
+from .models import Pessoa,Cadeira,Projeto, Post, PontuacaoQuizz
+
 
 
 def home_page_view(request):
@@ -29,20 +30,20 @@ def home_page_view(request):
 
 
 def licenciatura_page_view(request):
-    context = {'pessoas': Pessoa.objects.all()}
-    return render(request, 'portfolio/licenciatura.html',context)
+    context = {'cadeiras': Cadeira.objects.all()}
+    return render(request, 'portfolio/licenciatura.html', context)
 
 def projetos_page_view(request):
-    return render(request, 'portfolio/projetos.html')
+    context = {'projetos': Projeto.objects.all()}
+    return render(request, 'portfolio/projetos.html', context)
 
 def blog_page_view(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'portfolio/blog.html', context)
 
-@login_required
 def new_page_view(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('tarefas:login'))
+    #if not request.user.is_authenticated:
+     #   return HttpResponseRedirect(reverse('portfolio:blog'))
 
     form = PostForm(request.POST or None)
     if form.is_valid():
@@ -53,7 +54,6 @@ def new_page_view(request):
 
     return render(request, 'portfolio/new.html', context)
 
-@login_required
 def edita_post_view(request, post_id):
     post = Post.objects.get(id=post_id)
     form = PostForm(request.POST or None, instance=post)
@@ -134,7 +134,7 @@ def view_login(request):
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('portfolio:blog'))
+            return HttpResponseRedirect(reverse('portfolio:home'))
         else:
             return render(request, 'portfolio/login.html', {
                 'message': 'Credenciais invalidas.'
@@ -146,7 +146,7 @@ def view_login(request):
 def view_logout(request):
     logout(request)
 
-    return render(request, 'portfolio/login.html', {
+    return render(request, 'portfolio/home.html', {
                 'message': 'Foi desconetado.'
             })
 

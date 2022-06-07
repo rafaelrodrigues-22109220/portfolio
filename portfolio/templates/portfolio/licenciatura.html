@@ -1,41 +1,29 @@
-{% extends 'portfolio/layout_list.html' %}
+{% extends 'portfolio/layout.html' %}
 
-{% block titulo %}
-<h3>Licenciatura</h3>
-{% endblock %}
+{% block main %}
+    <h3>Licenciatura</h3>
 
-{% block img1 %}
-    {% load static %}
-    <img src="{% static 'portfolio/images/c-icon.png' %}">
-{% endblock img1 %}
+    <br>
 
-{% block text1 %}
-    <p>Linguagens de Programação 1 - Linguagem C
-        <br> Pedro Serra
-        <br> 1ºAno/ 2ºSemestre - 5 ECTS
-        <br> 5⭐</p>
-{% endblock text1 %}
+    <div class="lista">
+        {% for cadeira in cadeiras %}
+            <div>
+                <div>
+                    {% load static %}
+                    <img src="{{ cadeira.imagem.url }}">
+                </div>
+                <div>
+                    <p>{{ cadeira.nome }} - {{ cadeira.assunto }}
+                    <br> {{ cadeira.docente }}
+                    <br> {{ cadeira.ano }} / {{ cadeira.semestre }}
+                    <br>{{ cadeira.avaliacao }} ⭐ </p>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
 
-{% block img2 %}
-   {% load static %}
-    <img src="{% static 'portfolio/images/arduino-icon.png' %}">
-{% endblock img2 %}
+{% endblock main %}
 
-{% block text2 %}
-    <p>Arquitectura Avançada de Computadores - Arduino
-        <br> Pedro Serra
-        <br> 2ºAno/ 1ºSemestre - 6 ECTS
-        <br> 5⭐</p>
-{% endblock text2 %}
 
-{% block img3 %}
-    {% load static %}
-    <img src="{% static 'portfolio/images/html-icon.png' %}">
-{% endblock img3 %}
 
-{% block text3 %}
-    <p>Programação Web - WebSites
-        <br> Lucio Studer
-        <br> 2ºAno/ 2ºSemestre - 6 ECTS
-        <br> 5⭐</p>
-{% endblock text3 %}
+
