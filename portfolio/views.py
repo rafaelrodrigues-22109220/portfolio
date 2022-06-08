@@ -84,20 +84,20 @@ def new_cadeira_page_view(request):
 
     return render(request, 'portfolio/new.html', context)
 
-def edita_cadeira_view(request, post_id):
-    post = Cadeira.objects.get(id=post_id)
-    form = CadeiraForm(request.POST or None, instance=post)
+def edita_cadeira_view(request, cadeira_id):
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    form = CadeiraForm(request.POST or None, instance=cadeira)
 
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
-    context = {'form': form, 'post_id': post_id}
+    context = {'form': form, 'cadeira_id': cadeira_id}
     return render(request, 'portfolio/edit.html', context)
 
 
-def apaga_cadeira_view(request, post_id):
-    Cadeira.objects.get(id=post_id).delete()
+def apaga_cadeira_view(request, cadeira_id):
+    Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
 
@@ -114,20 +114,20 @@ def new_projeto_page_view(request):
 
     return render(request, 'portfolio/new.html', context)
 
-def edita_projeto_view(request, post_id):
-    post = Projeto.objects.get(id=post_id)
-    form = ProjetoForm(request.POST or None, instance=post)
+def edita_projeto_view(request, projeto_id):
+    projeto = Projeto.objects.get(id=projeto_id)
+    form = ProjetoForm(request.POST or None, instance=projeto)
 
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portfolio:projetos'))
 
-    context = {'form': form, 'post_id': post_id}
+    context = {'form': form, 'projeto_id': projeto_id}
     return render(request, 'portfolio/edit.html', context)
 
 
-def apaga_projeto_view(request, post_id):
-    Projeto.objects.get(id=post_id).delete()
+def apaga_projeto_view(request, projeto_id):
+    Projeto.objects.get(id=projeto_id).delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
 
 def pontuacao_quizz(request):
