@@ -3,7 +3,7 @@
 {% block main %}
     <h3>Projetos</h3>
     <br>
-    <a href="{% url 'portfolio:new' %}" class="button" role="button">+ Nova Cadeira</a>
+    <a href="{% url 'portfolio:new_projeto' %}" class="button" role="button">+ Nova Cadeira</a>
     <div class="lista">
         {% for projeto in projetos  %}
             <div>
@@ -15,7 +15,7 @@
                     <p><b>{{ projeto.titulo }}</b></p>
                     <p>{{ projeto.descricao }}</p>
                 </div>
-                <a href="{% url 'portfolio:edit_post' projeto.id %}" class="button" role="button">Editar</a>
+                <a href="{% url 'portfolio:edit_projeto' projeto.id %}" class="button" role="button">Editar</a>
             </div>
         {% endfor %}
     </div>
