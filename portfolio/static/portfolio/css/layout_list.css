@@ -10,7 +10,7 @@ h3{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
-    padding: 0px;
+    padding: 0;
     align-items: center;
 
 }
@@ -42,6 +42,9 @@ h3{
     align-items: center;
     flex-direction: column;
     flex-wrap: wrap;
+
+    word-break: break-word;
+    font-size: 0.8em;
 }
 
 .lista div div:last-child p{
