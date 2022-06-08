@@ -16,7 +16,7 @@ matplotlib.use('Agg')
 from django.shortcuts import render
 
 
-from .forms import PostForm
+from .forms import PostForm,CadeiraForm, ProjetoForm
 from .models import Pessoa,Cadeira,Projeto, Post, PontuacaoQuizz
 
 
@@ -41,7 +41,7 @@ def blog_page_view(request):
     context = {'posts': Post.objects.all()}
     return render(request, 'portfolio/blog.html', context)
 
-def new_page_view(request):
+def new_post_page_view(request):
     #if not request.user.is_authenticated:
      #   return HttpResponseRedirect(reverse('portfolio:blog'))
 
@@ -69,6 +69,66 @@ def edita_post_view(request, post_id):
 def apaga_post_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
+
+
+def new_cadeira_page_view(request):
+    #if not request.user.is_authenticated:
+     #   return HttpResponseRedirect(reverse('portfolio:blog'))
+
+    form = CadeiraForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/new.html', context)
+
+def edita_cadeira_view(request, post_id):
+    post = Cadeira.objects.get(id=post_id)
+    form = CadeiraForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+    context = {'form': form, 'post_id': post_id}
+    return render(request, 'portfolio/edit.html', context)
+
+
+def apaga_cadeira_view(request, post_id):
+    Cadeira.objects.get(id=post_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
+
+def new_projeto_page_view(request):
+    #if not request.user.is_authenticated:
+     #   return HttpResponseRedirect(reverse('portfolio:blog'))
+
+    form = ProjetoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/new.html', context)
+
+def edita_projeto_view(request, post_id):
+    post = Projeto.objects.get(id=post_id)
+    form = ProjetoForm(request.POST or None, instance=post)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
+    context = {'form': form, 'post_id': post_id}
+    return render(request, 'portfolio/edit.html', context)
+
+
+def apaga_projeto_view(request, post_id):
+    Projeto.objects.get(id=post_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:projetos'))
 
 def pontuacao_quizz(request):
     score = 0

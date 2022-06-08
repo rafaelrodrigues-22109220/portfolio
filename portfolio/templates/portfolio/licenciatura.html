@@ -5,7 +5,7 @@
 
     <br>
 
-    <a href="{% url 'portfolio:new' %}" class="button" role="button">+ Nova Cadeira</a>
+    <a href="{% url portfolio:new %}" class="button" role="button">+ Nova Cadeira</a>
 
     <div class="lista">
         {% for cadeira in cadeiras %}
@@ -21,6 +21,8 @@
                     <br><b>Ano:</b> {{ cadeira.ano }} / <b>Semestre:</b>{{ cadeira.semestre }}
                     <br><b>Avaliação:</b> {{ cadeira.avaliacao }}  ⭐</p>
                 </div>
+                <a href="{% url 'portfolio:edit_post' cadeira.id %}" class="button" role="button">Editar</a>
+
             </div>
             {% endfor %}
     </div>
