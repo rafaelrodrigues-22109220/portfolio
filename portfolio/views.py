@@ -93,7 +93,7 @@ def edita_cadeira_view(request, cadeira_id):
         return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
     context = {'form': form, 'cadeira_id': cadeira_id}
-    return render(request, 'portfolio/edit.html', context)
+    return render(request, 'portfolio/edit_cadeira.html', context)
 
 
 def apaga_cadeira_view(request, cadeira_id):
@@ -123,7 +123,7 @@ def edita_projeto_view(request, projeto_id):
         return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     context = {'form': form, 'projeto_id': projeto_id}
-    return render(request, 'portfolio/edit.html', context)
+    return render(request, 'portfolio/edit_projeto.html.html', context)
 
 
 def apaga_projeto_view(request, projeto_id):
