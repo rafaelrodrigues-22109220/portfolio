@@ -15,7 +15,7 @@ h3{
 
 }
 
-.caixa_flex_grande{
+.caixa_flex_maior{
     display: flex;
     justify-content: space-around;
     border-radius: 20px;
