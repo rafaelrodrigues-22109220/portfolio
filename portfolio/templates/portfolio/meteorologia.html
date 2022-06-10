@@ -28,7 +28,7 @@
     var dataTemp = document.querySelector('.data')
 
     weatherSubmit.addEventListener('click', function(){
-        fetch('http://api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
+        fetch('//api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
             .then(response => response.json())
             .then(data => {
                 maxTemp.innerHTML = data['data'][0]['tMax'];
