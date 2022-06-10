@@ -21,21 +21,30 @@
             background-attachment: fixed;
             color: aliceblue;
         }
-        article.primeiro {
-            /* definindo altura e cor */
+        .caixa {
             height: 50vh;
-            background: aliceblue;
+            background: #f0f8ff69;
             color: black;
             text-align: center;
             font-size: 2rem;
             padding: inherit;
             border-radius: 20px;
+            display: flex;
         }
+        .home_img img{
+            width: 12em;
+            border-radius: 50%;
+        }
+
+        .home_teste p{
+            padding: 40px;
+        }
+
     </style>
-    <article class="primeiro">
+    <div class="caixa">
         <div class="home_img">
             {% load static %}
-            <img src="{% static 'portfolio/images/Rafa.jpg' %}" alt="">
+            <img src="{% static 'portfolio/images/Rafa.jpg' %}" >
         </div>
         <div class="home_teste">
             <h3>O meu Portfólio - {{ agora }}</h3>
@@ -43,7 +52,7 @@
             <p>Ola, o meu nome é Rafael, sou estudante do 2º ano da licenciatura em Engenharia Informática
                 e este é o meu portfolio Digital</p>
         </div>
-    </article>
+    </div>
 
 {% endblock %}
 
