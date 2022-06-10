@@ -32,12 +32,13 @@
             display: flex;
         }
         .home_img img{
-            width: 12em;
+            width: 15rem;
             border-radius: 50%;
         }
 
-        .home_teste p{
-            padding: 40px;
+        .home_text p{
+            padding: 26px;
+            font-size: medium;
         }
 
     </style>
@@ -46,7 +47,7 @@
             {% load static %}
             <img src="{% static 'portfolio/images/Rafa.jpg' %}" >
         </div>
-        <div class="home_teste">
+        <div class="home_text">
             <h3>O meu Portfólio - {{ agora }}</h3>
             <br>
             <p>Ola, o meu nome é Rafael, sou estudante do 2º ano da licenciatura em Engenharia Informática
