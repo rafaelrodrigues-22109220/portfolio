@@ -208,7 +208,7 @@ def view_login(request):
                 'message': 'Credenciais invalidas.'
             })
 
-    return render(request, 'portfolio/home.html')
+    return render(request, 'portfolio/login.html')
 
 
 def view_logout(request):
