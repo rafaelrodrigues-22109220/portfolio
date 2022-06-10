@@ -100,7 +100,8 @@ def edita_cadeira_view(request, cadeira_id):
 
 
 def apaga_cadeira_view(request, cadeira_id):
-    Cadeira.objects.get(id=cadeira_id).delete()
+    cadeira = Cadeira.objects.get(id=cadeira_id)
+    cadeira.delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
 
@@ -134,7 +135,8 @@ def edita_projeto_view(request, projeto_id):
 
 
 def apaga_projeto_view(request, projeto_id):
-    Projeto.objects.get(id=projeto_id).delete()
+    projeto = Projeto.objects.get(id=projeto_id)
+    projeto.delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
 
 def pontuacao_quizz(request):
