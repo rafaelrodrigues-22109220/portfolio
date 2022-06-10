@@ -68,12 +68,12 @@ def apaga_post_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
-@login_required
+
 def new_cadeira_page_view(request):
     if not request.user.is_authenticated:
         return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
-    form = CadeiraForm(request.POST or None)
+    form = CadeiraForm(request.POST or request.FILES or None)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portfolio:licenciatura'))
@@ -89,7 +89,7 @@ def edita_cadeira_view(request, cadeira_id):
         return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
     cadeira = Cadeira.objects.get(id=cadeira_id)
-    form = CadeiraForm(request.POST or None, instance=cadeira)
+    form = CadeiraForm(request.POST or request.FILES or None, instance=cadeira)
 
     if form.is_valid():
         form.save()
@@ -108,7 +108,7 @@ def new_projeto_page_view(request):
     if not request.user.is_authenticated:
        return HttpResponseRedirect(reverse('portfolio:projetos'))
 
-    form = ProjetoForm(request.POST or None)
+    form = ProjetoForm(request.POST or request.FILES or None)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect(reverse('portfolio:projetos'))
@@ -123,7 +123,7 @@ def edita_projeto_view(request, projeto_id):
         return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     projeto = Projeto.objects.get(id=projeto_id)
-    form = ProjetoForm(request.POST or None, instance=projeto)
+    form = ProjetoForm(request.POST or request.FILES or None, instance=projeto)
 
     if form.is_valid():
         form.save()
