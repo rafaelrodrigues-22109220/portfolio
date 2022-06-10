@@ -218,3 +218,6 @@ def view_logout(request):
                 'message': 'Foi desconetado.'
             })
 
+
+def meteorologia_view(request):
+    return render(request, 'portfolio/meteorologia.html')

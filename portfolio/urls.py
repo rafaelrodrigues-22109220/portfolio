@@ -22,5 +22,7 @@ urlpatterns = [
     path('apaga_projeto/<int:projeto_id>', views.apaga_projeto_view, name='apaga_projeto'),
     path('quizz', views.quizz, name = 'quizz'),
     path('login', views.view_login, name='login'),
-    path('logout', views.view_logout, name='logout')
+    path('logout', views.view_logout, name='logout'),
+    path('meteorologia', views.meteorologia_view, name='meteorologia')
+
 ]
