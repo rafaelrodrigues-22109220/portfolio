@@ -103,10 +103,10 @@ def apaga_cadeira_view(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
-#@login_required
+
 def new_projeto_page_view(request):
-    #if not request.user.is_authenticated:
-     #   return HttpResponseRedirect(reverse('portfolio:projetos'))
+    if not request.user.is_authenticated:
+       return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     form = ProjetoForm(request.POST or None)
     if form.is_valid():
@@ -117,7 +117,6 @@ def new_projeto_page_view(request):
 
     return render(request, 'portfolio/new_projeto.html', context)
 
-@login_required
 def edita_projeto_view(request, projeto_id):
 
     if not request.user.is_authenticated:
