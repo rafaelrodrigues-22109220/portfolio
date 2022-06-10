@@ -1,0 +1,13 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+
+    <h3>Nova Cadeira</h3>
+
+    <form method="Post" action="" class="new-form">
+        {% csrf_token %}
+
+        {{form.as_p }}
+        <input type="submit" value="Postar" class="postar-btn">
+    </form>
+{% endblock %}

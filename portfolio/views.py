@@ -82,7 +82,7 @@ def new_cadeira_page_view(request):
 
     context = {'form': form}
 
-    return render(request, 'portfolio/new.html', context)
+    return render(request, 'portfolio/new_cadeira.html', context)
 
 def edita_cadeira_view(request, cadeira_id):
     cadeira = Cadeira.objects.get(id=cadeira_id)
@@ -112,7 +112,7 @@ def new_projeto_page_view(request):
 
     context = {'form': form}
 
-    return render(request, 'portfolio/new.html', context)
+    return render(request, 'portfolio/new_projeto.html', context)
 
 def edita_projeto_view(request, projeto_id):
     projeto = Projeto.objects.get(id=projeto_id)
@@ -123,7 +123,7 @@ def edita_projeto_view(request, projeto_id):
         return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     context = {'form': form, 'projeto_id': projeto_id}
-    return render(request, 'portfolio/edit_projeto.html.html', context)
+    return render(request, 'portfolio/edit_projeto.html', context)
 
 
 def apaga_projeto_view(request, projeto_id):
