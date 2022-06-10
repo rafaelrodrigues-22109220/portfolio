@@ -124,7 +124,7 @@ def edita_projeto_view(request, projeto_id):
         return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     projeto = Projeto.objects.get(id=projeto_id)
-    form = ProjetoForm(request.POST, request.FILES or None, instance=projeto)
+    form = ProjetoForm(request.POST or request.FILES or None, instance=projeto)
 
     if form.is_valid():
         form.save()
