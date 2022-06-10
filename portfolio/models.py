@@ -26,11 +26,11 @@ class Cadeira(models.Model):
     nome = models.CharField(max_length=50)
     ano = models.IntegerField(default=0)
     semestre = models.IntegerField(default=0)
-    descricao = models.TextField(default=0)
+    descricao = models.TextField()
     assunto = models.CharField(max_length=10)
     docente = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     pontuacao = models.IntegerField(default=0)
-    imagem = models.ImageField(upload_to="pictures/")
+    imagem = models.ImageField(upload_to="pictures/", blank=True)
 
     def __str__(self):
         return self.nome

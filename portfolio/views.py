@@ -2,8 +2,6 @@ import datetime
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
-
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 
@@ -70,10 +68,10 @@ def apaga_post_view(request, post_id):
     Post.objects.get(id=post_id).delete()
     return HttpResponseRedirect(reverse('portfolio:blog'))
 
-
+@login_required
 def new_cadeira_page_view(request):
-    #if not request.user.is_authenticated:
-     #   return HttpResponseRedirect(reverse('portfolio:blog'))
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
     form = CadeiraForm(request.POST or None)
     if form.is_valid():
@@ -84,7 +82,12 @@ def new_cadeira_page_view(request):
 
     return render(request, 'portfolio/new_cadeira.html', context)
 
+@login_required
 def edita_cadeira_view(request, cadeira_id):
+
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:licenciatura'))
+
     cadeira = Cadeira.objects.get(id=cadeira_id)
     form = CadeiraForm(request.POST or None, instance=cadeira)
 
@@ -100,10 +103,10 @@ def apaga_cadeira_view(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
-
+@login_required
 def new_projeto_page_view(request):
-    #if not request.user.is_authenticated:
-     #   return HttpResponseRedirect(reverse('portfolio:blog'))
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     form = ProjetoForm(request.POST or None)
     if form.is_valid():
@@ -114,7 +117,12 @@ def new_projeto_page_view(request):
 
     return render(request, 'portfolio/new_projeto.html', context)
 
+@login_required
 def edita_projeto_view(request, projeto_id):
+
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:projetos'))
+
     projeto = Projeto.objects.get(id=projeto_id)
     form = ProjetoForm(request.POST or None, instance=projeto)
 
@@ -188,9 +196,9 @@ def view_login(request):
         password = request.POST['password']
 
         user = authenticate(
-            request,
-            username=username,
-            password=password)
+                            request,
+                            username=username,
+                            password=password)
 
         if user is not None:
             login(request, user)
@@ -200,7 +208,7 @@ def view_login(request):
                 'message': 'Credenciais invalidas.'
             })
 
-    return render(request, 'portfolio/login.html')
+    return render(request, 'portfolio/home.html')
 
 
 def view_logout(request):
