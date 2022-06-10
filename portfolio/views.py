@@ -103,10 +103,10 @@ def apaga_cadeira_view(request, cadeira_id):
     Cadeira.objects.get(id=cadeira_id).delete()
     return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
-@login_required
+#@login_required
 def new_projeto_page_view(request):
-    if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:projetos'))
+    #if not request.user.is_authenticated:
+     #   return HttpResponseRedirect(reverse('portfolio:projetos'))
 
     form = ProjetoForm(request.POST or None)
     if form.is_valid():
