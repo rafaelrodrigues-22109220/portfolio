@@ -89,7 +89,7 @@ def edita_cadeira_view(request, cadeira_id):
         return HttpResponseRedirect(reverse('portfolio:licenciatura'))
 
     cadeira = Cadeira.objects.get(id=cadeira_id)
-    form = CadeiraForm(request.POST, request.FILES or None, instance=cadeira)
+    form = CadeiraForm(request.POST or request.FILES or None, instance=cadeira)
 
     if form.is_valid():
         form.save()
