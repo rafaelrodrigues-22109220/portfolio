@@ -23,11 +23,19 @@
                         <br><b>Assunto:</b>{{ cadeira.assunto }}
                         <br><b>Docente:</b> {{ cadeira.docente.nome}} <b>Linkedin:</b>{{ cadeira.docente.linkedin }}
                         <br><b>Ano:</b> {{ cadeira.ano }} / <b>Semestre:</b>{{ cadeira.semestre }}
-                        <br><b>Avaliação:</b>
-                            {% for i in str  %}:
-                                new_str = new_str + ⭐
-                            {% endfor %}
-                             </p>
+
+                        {% if cadeira.pontuacao == 1 %}
+                            <br><b>Avaliação:</b> ⭐
+                        {% elif cadeira.pontuacao == 2 %}
+                            <br><b>Avaliação:</b> ⭐⭐
+                        {% elif cadeira.pontuacao == 3 %}
+                        <br><b>Avaliação:</b> ⭐⭐⭐
+                        {% elif cadeira.pontuacao == 4 %}
+                        <br><b>Avaliação: ⭐⭐⭐⭐</b> ⭐⭐⭐⭐
+                        {% elif cadeira.pontuacao == 5 %}
+                        <br><b>Avaliação:</b> ⭐⭐⭐⭐⭐
+                            {% endif %}
+                        </p>
                     </div>
 
                 </div>
