@@ -1,3 +1,11 @@
-section .weatherSubmitCity{
+section.weatherSubmitCity{
     text-align: center
+}
+
+input.weatherSubmitCity{
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    background: #008ec0;
+    color: white;
 }
