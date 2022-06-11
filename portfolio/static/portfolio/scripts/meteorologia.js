@@ -35,6 +35,6 @@
                     weatherIcon = "cloud.png"
                 }
 
-                document.getElementById("weather image").src = "portfolio/static/portfolio/images" + weatherIcon;
+                document.getElementById("weatherImage").src = "portfolio/static/portfolio/images/" + weatherIcon;
             })
     }
