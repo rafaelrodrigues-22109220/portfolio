@@ -13,8 +13,7 @@
         var maxTemp = document.querySelector('.maxTemp')
         var minTemp = document.querySelector('.minTemp')
 
-        var weatherId = data['data'][0]['idWeatherType'];
-        var weatherIcon = "";
+
 
         fetch('//api.ipma.pt/open-data/forecast/meteorology/cities/daily/1110600.json')
             .then(response => response.json())
@@ -22,20 +21,20 @@
                 console.log(data);
                 maxTemp.innerHTML = data['data'][0]['tMax'];
                 minTemp.innerHTML = data['data'][0]['tMin'];
+
+                var weatherId = data['data'][0]['idWeatherType'];
+                var weatherIcon = "";
+
+                if (sunny.includes(weatherId)){
+                    weatherIcon = "sun.png"
+                }else if(cloudy.includes(weatherId)){
+                    weatherIcon = "cloud.png"
+                }else if(rain.includes(weatherId)){
+                    weatherIcon = "rain.png"
+                }else if(snow.includes(weatherId)){
+                    weatherIcon = "cloud.png"
+                }
+
+                document.getElementById("weather image").src = "portfolio/static/portfolio/images" + weatherIcon;
             })
-
-
-
-
-        if (sunny.includes(weatherId)){
-            weatherIcon = "sun.png"
-        }else if(cloudy.includes(weatherId)){
-            weatherIcon = "cloud.png"
-        }else if(rain.includes(weatherId)){
-            weatherIcon = "rain.png"
-        }else if(snow.includes(weatherId)){
-            weatherIcon = "cloud.png"
-        }
-
-        document.getElementById("weather image").src = "portfolio/static/portfolio/images" + weatherIcon;
     }
