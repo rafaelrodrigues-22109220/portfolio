@@ -24,7 +24,7 @@ class Projeto(models.Model):
 
 class Cadeira(models.Model):
     nome = models.CharField(max_length=50)
-    ano = models.IntegerField(default=0)
+    ano = models.IntegerField(default=0, )
     semestre = models.IntegerField(default=0)
     descricao = models.TextField()
     assunto = models.CharField(max_length=10)
