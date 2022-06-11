@@ -4,6 +4,9 @@ section.weatherSubmitCity{
 
 .weatherCityInput{
     text-align: center;
+}
+
+.weatherSubmitCity{
     border: none;
     padding: 10px;
     border-radius: 10px;
