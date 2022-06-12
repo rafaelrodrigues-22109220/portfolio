@@ -8,12 +8,12 @@
         {% else %}
             <a href=""></a>
     {% endif %}
+
     <div class="lista">
         {% for projeto in projetos  %}
             <div class="caixa_flex_maior">
                 <div class="caixa_flex">
                     <div>
-                        {% load static %}
                         <img src="{{ projeto.imagem.url }}">
                     </div>
                     <div>
