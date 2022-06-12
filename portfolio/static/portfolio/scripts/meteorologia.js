@@ -19,8 +19,8 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                maxTemp.innerHTML = data['data'][0]['tMax'];
-                minTemp.innerHTML = data['data'][0]['tMin'];
+                maxTemp.innerHTML = "Max: " + data['data'][0]['tMax'] + "Cº";
+                minTemp.innerHTML = "Min: " + data['data'][0]['tMin'] + "Cº";
 
                 var weatherId = data['data'][0]['idWeatherType'];
                 var weatherIcon = "";
