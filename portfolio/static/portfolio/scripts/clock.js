@@ -1,22 +1,22 @@
-function currentTime() {
-  let date = new Date();
-  let hh = date.getHours();
-  let mm = date.getMinutes();
-  let ss = date.getSeconds();
-  let session = "AM";
+function displayTime(){
+    var dateTime = new Date();
+    var hrs = dateTime.getHours();
+    var min = dateTime.getMinutes();
+    var sec = dateTime.getSeconds();
+    var session = document.getElementById('session');
 
+    if(hrs >= 12){
+        session.innerHTML = 'PM';
+    }else{
+        session.innerHTML = 'AM';
+    }
 
-  if(hh > 12){
-      session = "PM";
-   }
+    if(hrs > 12){
+        hrs = hrs - 12;
+    }
 
-   hh = (hh < 10) ? "0" + hh : hh;
-   mm = (mm < 10) ? "0" + mm : mm;
-   ss = (ss < 10) ? "0" + ss : ss;
-
-  document.getElementById("clock").innerText = hh + ":" + mm + ":" + ss + " " + session;
-  var t = setTimeout(function(){ currentTime() }, 1000);
-
+    document.getElementById('hours').innerHTML = hrs;
+    document.getElementById('minutes').innerHTML = min;
+    document.getElementById('seconds').innerHTML = sec;
 }
-
-currentTime();
+setInterval(displayTime, 10);
