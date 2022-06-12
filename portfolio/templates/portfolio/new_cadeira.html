@@ -4,7 +4,7 @@
 
     <h3>Nova Cadeira</h3>
 
-    <form method="Post" action="" class="new-form">
+    <form method="Post" action="" class="new-form" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{form.as_p }}
