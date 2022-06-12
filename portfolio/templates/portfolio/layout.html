@@ -14,8 +14,9 @@
     <link rel="stylesheet" href="{% static 'portfolio/css/quizz.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/new.css' %}">
     <link rel="stylesheet" href="{% static 'portfolio/css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'portfolio/css/meteorologia.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'portfolio/css/meteorologia.css' %}"> -->
     <script src="{% static 'portfolio/scripts/meteorologia.js' %}"></script>
+    <script src="{% static 'portfolio/scripts/clock.js' %}"></script>
 
     <meta charset="UTF-8">
     <title>layout</title>
@@ -50,6 +51,7 @@
             <a href="https://github.com/rafaelrodrigues-22109220">
                 <img src="{% static 'portfolio/images/github.png' %}" alt="GitHub"> GitHub</a>
         </div>
+        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
         <div class="weatherDisplay">
             <image id="weatherImage"></image>
             <h3 class="maxTemp"></h3>
