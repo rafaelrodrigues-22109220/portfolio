@@ -6,7 +6,7 @@ section.weatherSubmitCity{
     text-align: center;
 }
 
-.weatherSubmitCity{
+.weatherDisplay{
     display: flex;
     border: none;
     padding: 10px;
