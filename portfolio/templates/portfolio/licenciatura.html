@@ -24,7 +24,7 @@
                         <br><b>Docente:</b> {{ cadeira.docente.nome}} <b>Linkedin:</b>{{ cadeira.docente.linkedin }}
                         <br><b>Ano:</b> {{ cadeira.ano }} / <b>Semestre:</b>{{ cadeira.semestre }}
 
-                        {% if cadeira.pontuacao == 1 %}
+                        {% if cadeira.pontuacao <= 1 %}
                             <br><b>Avaliação:</b> ⭐
                         {% elif cadeira.pontuacao == 2 %}
                             <br><b>Avaliação:</b> ⭐⭐
@@ -32,7 +32,7 @@
                         <br><b>Avaliação:</b> ⭐⭐⭐
                         {% elif cadeira.pontuacao == 4 %}
                         <br><b>Avaliação:</b> ⭐⭐⭐⭐
-                        {% elif cadeira.pontuacao == 5 %}
+                        {% elif cadeira.pontuacao >= 5 %}
                         <br><b>Avaliação:</b> ⭐⭐⭐⭐⭐
                             {% endif %}
                         </p>
