@@ -12,6 +12,19 @@
             height: 10vh;
         }
 
+        .parallax{
+            {% load static %}
+             background-image: url("{% static 'portfolio/images/background.jpg' %}");
+              /* Set a specific height */
+              min-height: 200px;
+
+              /* Create the parallax scrolling effect */
+              background-attachment: fixed;
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+        }
+
         main{
             {% load static %}
             background-image: url("{% static 'portfolio/images/background.jpg' %}");
@@ -54,6 +67,16 @@
                 e este é o meu portfolio Digital</p>
         </div>
     </div>
+
+    <div class="parallax"></div>
+
+    <div class="sobre"></div>
+
+    <div class="parallax"></div>
+
+    <div class="video"></div>
+
+    <div class="parallax"></div>
 
 {% endblock %}
 
