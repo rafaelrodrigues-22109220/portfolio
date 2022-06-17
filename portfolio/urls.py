@@ -26,7 +26,5 @@ urlpatterns = [
     path('quizz', views.quizz, name = 'quizz'),
     path('login', views.view_login, name='login'),
     path('logout', views.view_logout, name='logout'),
-    path('meteorologia', views.meteorologia_view, name='meteorologia'),
-    path('laboratorios', views.labs_page_view, name='laboratorios')
-
+    path('meteorologia', views.meteorologia_view, name='meteorologia')
 ]
