@@ -11,6 +11,7 @@
         <input type="submit" value="Postar" class="postar-btn">
     </form>
     <div class="new_pessoa-btn">
-        <a href="{% url 'portfolio:new_pessoa' %}" class="new_pesoa_btn">Novo</a>
+        {% load static %}
+        <a href="{% url 'portfolio:new_pessoa' %}" class="new_pesoa_btn"><img src="{% static 'portfolio/images/add.png' %}" alt=""></a>
     </div>
 {% endblock %}
