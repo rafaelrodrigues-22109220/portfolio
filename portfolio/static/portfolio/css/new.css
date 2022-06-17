@@ -37,4 +37,9 @@
 .new_pessoa-btn{
     padding-left: 602px;
     margin-top: -164px;
+    padding-bottom: 10em;
+}
+
+.new_pessoa-btn a{
+    color: black;
 }
