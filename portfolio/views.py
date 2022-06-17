@@ -141,12 +141,12 @@ def apaga_projeto_view(request, projeto_id):
 
 def new_pessoa_page_view(request):
     if not request.user.is_authenticated:
-       return HttpResponseRedirect(reverse('portfolio:pessoas'))
+       return HttpResponseRedirect(reverse('portfolio:new_cadeira'))
 
     form = PessoaForm(request.POST, request.FILES or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('portfolio:pessoas'))
+        return HttpResponseRedirect(reverse('portfolio:new_cadeira'))
 
     context = {'form': form}
 
@@ -155,14 +155,14 @@ def new_pessoa_page_view(request):
 def edita_pessoa_view(request, pessoa_id):
 
     if not request.user.is_authenticated:
-        return HttpResponseRedirect(reverse('portfolio:pessoas'))
+        return HttpResponseRedirect(reverse('portfolio:new_cadeira'))
 
     pessoa = Pessoa.objects.get(id=pessoa_id)
     form = PessoaForm(request.POST or request.FILES or None, instance=pessoa)
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect(reverse('portfolio:pessoas'))
+        return HttpResponseRedirect(reverse('portfolio:new_cadeira'))
 
     context = {'form': form, 'pessoa_id': pessoa_id}
     return render(request, 'portfolio/edit_pessoa.html', context)
@@ -170,7 +170,7 @@ def edita_pessoa_view(request, pessoa_id):
 def apaga_pessoa_view(request, pessoa_id):
     pessoa = Pessoa.objects.get(id=pessoa_id)
     pessoa.delete()
-    return HttpResponseRedirect(reverse('portfolio:pessoas'))
+    return HttpResponseRedirect(reverse('portfolio:apaga_pessoa'))
 
 
 def pontuacao_quizz(request):
