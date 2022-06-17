@@ -2,7 +2,7 @@
 
 {% block main %}
 
-    <h3>Nova Cadeira</h3>
+    <h3>Nova Pessoa</h3>
 
     <form method="Post" action="" class="new-form" enctype="multipart/form-data">
         {% csrf_token %}
@@ -10,7 +10,4 @@
         {{form.as_p }}
         <input type="submit" value="Postar" class="postar-btn">
     </form>
-
-    <a href="{% url 'portfolio:new_pessoa' %}" class="new_pesoa_btn"></a>
-
 {% endblock %}

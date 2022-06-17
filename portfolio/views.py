@@ -14,7 +14,7 @@ matplotlib.use('Agg')
 from django.shortcuts import render
 
 
-from .forms import PostForm,CadeiraForm, ProjetoForm
+from .forms import PostForm,CadeiraForm, ProjetoForm, PessoaForm
 from .models import Pessoa,Cadeira,Projeto, Post, PontuacaoQuizz
 
 
@@ -139,6 +139,40 @@ def apaga_projeto_view(request, projeto_id):
     projeto.delete()
     return HttpResponseRedirect(reverse('portfolio:projetos'))
 
+def new_pessoa_page_view(request):
+    if not request.user.is_authenticated:
+       return HttpResponseRedirect(reverse('portfolio:pessoas'))
+
+    form = PessoaForm(request.POST, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:pessoas'))
+
+    context = {'form': form}
+
+    return render(request, 'portfolio/new_pessoa.html', context)
+
+def edita_pessoa_view(request, pessoa_id):
+
+    if not request.user.is_authenticated:
+        return HttpResponseRedirect(reverse('portfolio:pessoas'))
+
+    pessoa = Pessoa.objects.get(id=pessoa_id)
+    form = PessoaForm(request.POST or request.FILES or None, instance=pessoa)
+
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:pessoas'))
+
+    context = {'form': form, 'pessoa_id': pessoa_id}
+    return render(request, 'portfolio/edit_pessoa.html', context)
+
+def apaga_pessoa_view(request, pessoa_id):
+    pessoa = Pessoa.objects.get(id=pessoa_id)
+    pessoa.delete()
+    return HttpResponseRedirect(reverse('portfolio:pessoas'))
+
+
 def pontuacao_quizz(request):
     score = 0
     lista = request.POST.getlist('ling')
@@ -222,3 +256,4 @@ def view_logout(request):
 
 def meteorologia_view(request):
     return render(request, 'portfolio/meteorologia.html')
+
