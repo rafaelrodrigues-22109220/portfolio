@@ -257,6 +257,4 @@ def view_logout(request):
 def meteorologia_view(request):
     return render(request, 'portfolio/meteorologia.html')
 
-def labs_page_view(request):
-    return render(request, 'portfolio/laboratorios.html')
 
